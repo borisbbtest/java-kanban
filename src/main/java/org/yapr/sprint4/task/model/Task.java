@@ -1,11 +1,11 @@
 package org.yapr.sprint4.task.model;
 
 import java.util.Objects;
-public abstract class Task {
-    private int id;
-    private String title;
-    private String description;
-    private Status status;
+public  class Task {
+    protected int id;
+    protected String title;
+    protected String description;
+    protected Status status;
 
     public Task(int id, String title, String description, Status status) {
         this.id = id;
