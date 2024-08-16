@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TaskTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-08-16T23:53:53" hostname="MacBook-Pro-Zelaniny-3.local" time="0.001">
+  <properties/>
+  <testcase name="testEpicEqualityById()" classname="TaskTest" time="0.0"/>
+  <testcase name="testSubtaskEqualityById()" classname="TaskTest" time="0.001"/>
+  <testcase name="testTasksEqualityById()" classname="TaskTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
