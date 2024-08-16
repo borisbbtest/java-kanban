@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TaskManagerApp {
-    private static TaskManager taskManager = new TaskManager();
+    private static TaskManager taskManager = Managers.getDefault();;
     private static Scanner scanner = new Scanner(System.in);
 
     public static void run() {
@@ -26,6 +26,7 @@ public class TaskManagerApp {
                 case 8 -> getAllTasks();
                 case 9 -> getSubtasksForEpic();
                 case 10 -> deleteAllTasksAndEpics();
+                case 11 -> printHistory();
                 case 0 -> exit = true;
                 default -> System.out.println("Неверный выбор. Попробуйте снова.");
             }
@@ -43,7 +44,9 @@ public class TaskManagerApp {
         System.out.println("7. Получить задачу по идентификатору");
         System.out.println("8. Получить список всех задач");
         System.out.println("9. Получить список подзадач определённого эпика");
+        System.out.println("11. Показать историю просмотров задач");
         System.out.println("10. Удалить все задачи и эпики");
+        System.out.println("11. Показать историю просмотров задач");
         System.out.println("0. Выйти");
     }
 
@@ -182,6 +185,19 @@ public class TaskManagerApp {
             }
         }
     }
+
+    private static void printHistory() {
+        List<Task> history = taskManager.getHistory();
+        if (history.isEmpty()) {
+            System.out.println("История просмотров пуста.");
+        } else {
+            System.out.println("Последние просмотренные задачи:");
+            for (Task task : history) {
+                System.out.println(task);
+            }
+        }
+    }
+
 
     private static void getAllTasks() {
         List<Task> allTasks = taskManager.getAllTasks();

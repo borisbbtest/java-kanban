@@ -14,6 +14,8 @@ public  class Task {
         this.status = status;
     }
 
+
+
     public int getId() {
         return id;
     }
@@ -54,6 +56,7 @@ public  class Task {
         Task task = (Task) o;
         return id == task.id;
     }
+
 
     // в идеале нужен uuid по времени
     @Override
