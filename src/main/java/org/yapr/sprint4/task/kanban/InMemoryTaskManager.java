@@ -12,13 +12,14 @@ public class InMemoryTaskManager implements TaskManager {
     private final Map<Integer, Task> tasks = new HashMap<>();
     private final Map<Integer, Epic> epics = new HashMap<>();
     private final Map<Integer, Subtask> subtasks = new HashMap<>();
-    private final List<Task> history = new LinkedList<>();  // Для хранения истории просмотров
-    private static final int HISTORY_LIMIT = 10;  // Лимит истории на 10 задач
+    private final HistoryManager historyManager = Managers.getDefaultHistoryManager();
+
     private int idCounter = 1;
     // Счётчик для генерации уникальных идентификаторов
 
     // Методы для работы с Task
 
+     @Override
      public void createTask(Task task) {
         task.setId(generateId());
         tasks.put(task.getId(), task);
@@ -132,11 +133,24 @@ public class InMemoryTaskManager implements TaskManager {
         return allTasks;
     }
 
+    // Реализация метода getAllEpics
+    @Override
+    public List<Epic> getAllEpics() {
+        return new ArrayList<>(epics.values());
+    }
+
+    // Реализация метода getAllSubTasks
+    @Override
+    public List<Subtask> getAllSubTasks() {
+        return new ArrayList<>(subtasks.values());
+    }
+
+
     @Override
     public Task getTaskById(int id) {
         Task task = tasks.get(id);
         if (task != null) {
-            addToHistory(task);
+            historyManager.add(task);
         }
         return task;
     }
@@ -145,7 +159,7 @@ public class InMemoryTaskManager implements TaskManager {
     public Epic getEpicById(int id) {
         Epic epic = epics.get(id);
         if (epic != null) {
-            addToHistory(epic);
+            historyManager.add(epic);
         }
         return epic;
     }
@@ -154,21 +168,15 @@ public class InMemoryTaskManager implements TaskManager {
     public Subtask getSubtaskById(int id) {
         Subtask subtask = subtasks.get(id);
         if (subtask != null) {
-            addToHistory(subtask);
+            historyManager.add(subtask);
         }
         return subtask;
     }
 
-    private void addToHistory(Task task) {
-        if (history.size() == HISTORY_LIMIT) {
-            history.remove(0);  // Удаляем первый элемент, если достигнут лимит
-        }
-        history.add(task);  // Добавляем новый элемент в конец списка
-    }
 
     @Override
     public List<Task> getHistory() {
-        return new ArrayList<>(history);  // Возвращаем копию списка для безопасности
+        return historyManager.getHistory();
     }
 
 }
