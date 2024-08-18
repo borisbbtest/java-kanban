@@ -109,11 +109,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     // Метод для удаления всех задач и эпиков (и связанных подзадач)
-    public void deleteAllTasksAndEpics() {
-        tasks.clear();
-        epics.clear();
-        subtasks.clear(); // Удаляем также все подзадачи, связанные с эпиками
-    }
+
     public void deleteAllTasks() {
         tasks.clear();
         epics.clear();

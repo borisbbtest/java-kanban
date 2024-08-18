@@ -23,7 +23,7 @@ public interface TaskManager {
     void deleteEpicById(int id);
     void deleteSubtaskById(int id);
     List<Subtask> getSubtasksForEpic(int epicId);
-    void deleteAllTasksAndEpics();
+
     void deleteAllTasks();
     List<Task> getHistory();  // Новый метод для получения истории просмотров
 }

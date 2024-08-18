@@ -7,8 +7,7 @@ import java.util.List;
 
 public class InMemoryHistoryManager implements HistoryManager {
     private static final int HISTORY_LIMIT = 10;
-    private final LinkedList<Task> history = new LinkedList<>();
-
+    private final LinkedList<Task> history = new LinkedList<>(); // Я здесь LinkedList там внизу есть метод removeFirst он удаляет из очереди старые сообщения. Интерфейс List не содержит этого метода
     @Override
     public void add(Task task) {
         if (history.size() >= HISTORY_LIMIT) {

@@ -220,7 +220,7 @@ public class TaskManagerApp {
         }
     }
     private static void deleteAllTasksAndEpics() {
-        taskManager.deleteAllTasksAndEpics();
+        taskManager.getAllTasks();
         System.out.println("Все задачи, эпики и связанные с ними подзадачи удалены.");
     }
 }
