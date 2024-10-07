@@ -13,6 +13,8 @@ public class Epic extends Task {
         this.subtasks = new ArrayList<>();
     }
 
+
+
     public List<Subtask> getSubtasks() {
         return subtasks;
     }
@@ -44,6 +46,12 @@ public class Epic extends Task {
                 setStatus(Status.IN_PROGRESS);
             }
         }
+    }
+
+
+    public void removeSubtask(Subtask subtask) {
+        subtasks.remove(subtask);
+        updateStatus();
     }
 
     @Override
