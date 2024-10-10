@@ -99,6 +99,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         super.deleteAllTasks();
         save();
     }
+
     // Метод для сохранения состояния менеджера в файл
     private void save() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
