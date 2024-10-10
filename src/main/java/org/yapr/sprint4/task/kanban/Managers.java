@@ -13,6 +13,7 @@ public class Managers {
     public static HistoryManager getDefaultHistoryManager() {
         return new InMemoryHistoryManager();
     }
+
     // Метод для получения FileBackedTaskManager с временным файлом
     public static FileBackedTaskManager getFileBackedTaskManager() {
         try {
