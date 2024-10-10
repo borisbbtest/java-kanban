@@ -1,6 +1,6 @@
 package org.yapr.sprint4.task.model;
-
 import java.util.Objects;
+
 public  class Task {
     protected int id;
     protected String title;
@@ -13,8 +13,6 @@ public  class Task {
         this.description = description;
         this.status = status;
     }
-
-
 
     public int getId() {
         return id;
