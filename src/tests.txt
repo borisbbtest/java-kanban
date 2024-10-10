@@ -1,0 +1,8 @@
+./test/java/HistoryManagerTest.java
+./test/java/TaskImmutabilityTest.java
+./test/java/ManagersTest.java
+./test/java/FileBackedTaskManagerTest.java
+./test/java/TaskTest.java
+./test/java/TaskIdConflictTest.java
+./test/java/InMemoryTaskManagerTest.java
+./test/java/TaskFieldUpdateTest.java
