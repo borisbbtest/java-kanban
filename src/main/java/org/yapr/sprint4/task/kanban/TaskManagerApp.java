@@ -1,11 +1,12 @@
 package org.yapr.sprint4.task.kanban;
+
 import org.yapr.sprint4.task.model.*;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class TaskManagerApp {
-    private static TaskManager taskManager = Managers.getDefault();;
+    private static TaskManager taskManager = Managers.getDefault();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void run() {
@@ -44,7 +45,6 @@ public class TaskManagerApp {
         System.out.println("7. Получить задачу по идентификатору");
         System.out.println("8. Получить список всех задач");
         System.out.println("9. Получить список подзадач определённого эпика");
-        System.out.println("11. Показать историю просмотров задач");
         System.out.println("10. Удалить все задачи и эпики");
         System.out.println("11. Показать историю просмотров задач");
         System.out.println("0. Выйти");
@@ -198,7 +198,6 @@ public class TaskManagerApp {
         }
     }
 
-
     private static void getAllTasks() {
         List<Task> allTasks = taskManager.getAllTasks();
         if (allTasks.isEmpty()) {
@@ -219,8 +218,9 @@ public class TaskManagerApp {
             subtasks.forEach(subtask -> System.out.println("Подзадача: " + subtask));
         }
     }
+
     private static void deleteAllTasksAndEpics() {
-        taskManager.getAllTasks();
+        taskManager.deleteAllTasks();
         System.out.println("Все задачи, эпики и связанные с ними подзадачи удалены.");
     }
 }
