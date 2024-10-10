@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
-      <change beforePath="$PROJECT_DIR$/src/test/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FileBackedTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/HistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HistoryManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/InMemoryTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ManagersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ManagersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TaskFieldUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskFieldUpdateTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TaskIdConflictTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskIdConflictTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TaskImmutabilityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskImmutabilityTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -234,7 +225,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728136726875</updated>
       <workItem from="1728136727877" duration="15442000" />
-      <workItem from="1728575264686" duration="2774000" />
+      <workItem from="1728575264686" duration="3078000" />
     </task>
     <task id="LOCAL-00001" summary="новый функционал">
       <option name="closed" value="true" />

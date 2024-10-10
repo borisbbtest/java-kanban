@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TaskManagerApp {
-    private static TaskManager taskManager = Managers.getFileBackedTaskManager();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final TaskManager taskManager = Managers.getFileBackedTaskManager();
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void run() {
         boolean exit = false;

@@ -11,6 +11,6 @@ public class ManagersTest {
         TaskManager manager = Managers.getDefault();
 
         assertNotNull(manager, "TaskManager should not be null.");
-        assertTrue(manager instanceof InMemoryTaskManager, "TaskManager should be an instance of InMemoryTaskManager.");
+        assertInstanceOf(InMemoryTaskManager.class, manager, "TaskManager should be an instance of InMemoryTaskManager.");
     }
 }
