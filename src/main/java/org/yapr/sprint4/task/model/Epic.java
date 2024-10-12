@@ -6,7 +6,7 @@ import java.util.Objects;
 
 // Класс для эпиков
 public class Epic extends Task {
-    private List<Subtask> subtasks;
+    private final List<Subtask> subtasks;
 
     public Epic(int id, String title, String description) {
         super(id, title, description, Status.NEW);
@@ -57,9 +57,8 @@ public class Epic extends Task {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Epic)) return false;
+        if (!(o instanceof Epic epic)) return false;
         if (!super.equals(o)) return false;
-        Epic epic = (Epic) o;
         return Objects.equals(subtasks, epic.subtasks);
     }
 
