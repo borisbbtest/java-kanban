@@ -1,7 +1,5 @@
 package org.yapr.sprint4.task.model;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 // Класс для подзадач
