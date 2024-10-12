@@ -11,6 +11,7 @@ public class Task {
     protected Status status;
     protected Duration duration; // Продолжительность задачи
     protected LocalDateTime startTime; // Время начала задачи
+    protected int priority;
 
     // Конструктор без времени и продолжительности (для совместимости)
     public Task(int id, String title, String description, Status status) {
@@ -85,6 +86,14 @@ public class Task {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     // Переопределение equals и hashCode для корректного сравнения задач

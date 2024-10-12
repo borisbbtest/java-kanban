@@ -15,9 +15,11 @@ public class Epic extends Task {
 
 
 
-    public List<Subtask> getSubtasks() {
-        return subtasks;
-    }
+// --Commented out by Inspection START (10/12/24, 2:01 PM):
+//    public List<Subtask> getSubtasks() {
+//        return subtasks;
+//    }
+// --Commented out by Inspection STOP (10/12/24, 2:01 PM)
 
     public void addSubtask(Subtask subtask) {
         subtasks.add(subtask);

@@ -1,7 +1,9 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.yapr.sprint4.task.model.*;
 import org.yapr.sprint4.task.kanban.Managers;
 import org.yapr.sprint4.task.kanban.TaskManager;
+import org.yapr.sprint4.task.kanban.HistoryManager;
 
 import java.util.List;
 
@@ -10,6 +12,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class HistoryManagerTest {
 
     private final TaskManager taskManager = Managers.getDefault();
+    private HistoryManager historyManager;
+
+    @BeforeEach
+    public void setUp() {
+        historyManager = Managers.getDefaultHistoryManager();
+    }
+
 
     @Test
     void shouldAddTaskToHistory() {
@@ -60,5 +69,55 @@ class HistoryManagerTest {
         List<Task> history = taskManager.getHistory();
         assertEquals(task1, history.get(0));
         assertEquals(task2, history.get(1));
+    }
+
+
+    @Test
+    void testEmptyHistory() {
+        assertTrue(historyManager.getHistory().isEmpty());
+    }
+
+    @Test
+    void testAddTask() {
+        Task task = new Task(1, "Test Task", "Description", Status.NEW);
+        historyManager.add(task);
+        assertEquals(1, historyManager.getHistory().size());
+    }
+
+    @Test
+    void testDuplicateTask() {
+        Task task = new Task(1, "Test Task", "Description", Status.NEW);
+        historyManager.add(task);
+        historyManager.add(task);
+        assertEquals(1, historyManager.getHistory().size());
+    }
+
+    @Test
+    void testRemoveFromHistory() {
+        Task task1 = new Task(1, "Test Task 1", "Description", Status.NEW);
+        Task task2 = new Task(2, "Test Task 2", "Description", Status.NEW);
+        historyManager.add(task1);
+        historyManager.add(task2);
+        historyManager.remove(task1.getId());
+
+        assertEquals(1, historyManager.getHistory().size());
+        assertEquals(task2, historyManager.getHistory().get(0));
+    }
+
+    @Test
+    void testRemoveFromHistoryEdgeCases() {
+        Task task1 = new Task(1, "Test Task 1", "Description", Status.NEW);
+        Task task2 = new Task(2, "Test Task 2", "Description", Status.NEW);
+        historyManager.add(task1);
+        historyManager.add(task2);
+
+        // Удаление начала
+        historyManager.remove(task1.getId());
+        assertEquals(1, historyManager.getHistory().size());
+        assertEquals(task2, historyManager.getHistory().get(0));
+
+        // Удаление конца
+        historyManager.remove(task2.getId());
+        assertTrue(historyManager.getHistory().isEmpty());
     }
 }

@@ -1,5 +1,3 @@
-
-
 import org.junit.jupiter.api.Test;
 import org.yapr.sprint4.task.model.Epic;
 import org.yapr.sprint4.task.model.Status;

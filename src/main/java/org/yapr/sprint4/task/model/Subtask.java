@@ -13,18 +13,22 @@ public class Subtask extends Task {
         this.epicId = epicId;
     }
 
-    public Subtask(int id, String title, String description, Status status, int epicId, Duration duration, LocalDateTime startTime) {
-        super(id, title, description, status, duration, startTime);
-        this.epicId = epicId;
-    }
+// --Commented out by Inspection START (10/12/24, 2:01 PM):
+//    public Subtask(int id, String title, String description, Status status, int epicId, Duration duration, LocalDateTime startTime) {
+//        super(id, title, description, status, duration, startTime);
+//        this.epicId = epicId;
+//    }
+// --Commented out by Inspection STOP (10/12/24, 2:01 PM)
 
     public int getEpicId() {
         return epicId;
     }
 
-    public void setEpicId(int epicId) {
-        this.epicId = epicId;
-    }
+// --Commented out by Inspection START (10/12/24, 2:01 PM):
+//    public void setEpicId(int epicId) {
+//        this.epicId = epicId;
+//    }
+// --Commented out by Inspection STOP (10/12/24, 2:01 PM)
 
     @Override
     public boolean equals(Object o) {

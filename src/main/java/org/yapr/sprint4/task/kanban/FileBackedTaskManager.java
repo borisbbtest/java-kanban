@@ -8,15 +8,16 @@ import org.yapr.sprint4.task.model.Status;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.Duration;
-import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FileBackedTaskManager extends InMemoryTaskManager {
     private final File file;
+    private final Set<Task> prioritizedTasks = new TreeSet<>(Comparator.comparing(Task::getPriority));
 
     public FileBackedTaskManager(File file) {
         this.file = file;
@@ -108,7 +109,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     // Метод для сохранения состояния менеджера в файл
     private void save() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write("id,type,name,status,description,startTime,duration,epic\n");
+            writer.write("id,type,name,status,description,epic\n");
             for (Task task : getAllTasks()) {
                 writer.write(taskToString(task));
                 writer.newLine();
@@ -126,11 +127,9 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         sb.append(task.getTitle()).append(",");
         sb.append(task.getStatus()).append(",");
         sb.append(task.getDescription()).append(",");
-        sb.append(task.getStartTime() != null ? task.getStartTime() : "").append(",");
-        sb.append(task.getDuration() != null ? task.getDuration().toMinutes() : "");
 
         if (task instanceof Subtask) {
-            sb.append(",").append(((Subtask) task).getEpicId());
+            sb.append(((Subtask) task).getEpicId());
         }
 
         return sb.toString();
@@ -144,21 +143,22 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         String title = fields[2];
         Status status = Status.valueOf(fields[3]);
         String description = fields[4];
-        LocalDateTime startTime = fields[5].isEmpty() ? null : LocalDateTime.parse(fields[5]);
-        Duration duration = fields[6].isEmpty() ? null : Duration.ofMinutes(Long.parseLong(fields[6]));
 
-        switch (type) {
-            case "TASK" -> {
-                return new Task(id, title, description, status, duration, startTime);
-            }
-            case "EPIC" -> {
-                return new Epic(id, title, description);
-            }
+        return switch (type) {
+            case "TASK" -> new Task(id, title, description, status);
+            case "EPIC" -> new Epic(id, title, description);
             case "SUBTASK" -> {
-                int epicId = Integer.parseInt(fields[7]);
-                return new Subtask(id, title, description, status, epicId, duration, startTime);
+                int epicId = Integer.parseInt(fields[5]);
+                yield new Subtask(id, title, description, status, epicId);
             }
             default -> throw new IllegalArgumentException("Неизвестный тип задачи: " + type);
-        }
+        };
+    }
+
+    @Override
+    public List<Task> getPrioritizedTasks() {
+        return Stream.concat(Stream.concat(tasks.values().stream(), epics.values().stream()), subtasks.values().stream())
+                .sorted(Comparator.comparing(Task::getPriority)) // Здесь вы можете использовать getPriority() если он был добавлен
+                .collect(Collectors.toList());
     }
 }

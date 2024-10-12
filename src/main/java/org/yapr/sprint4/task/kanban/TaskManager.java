@@ -15,6 +15,8 @@ public interface TaskManager {
 
     Subtask getSubtaskById(int id);
 
+    List<Task> getPrioritizedTasks();
+
     void createTask(Task task);
 
     void createEpic(Epic epic);
@@ -37,6 +39,10 @@ public interface TaskManager {
 
     void deleteAllTasks();
 
-    List<Task> getHistory();  // Новый метод для получения истории просмотров
-}
+    List<Task> getHistory();  // Метод для получения истории просмотров
 
+// --Commented out by Inspection START (10/12/24, 2:01 PM):
+//    // Добавьте метод для получения задач в приоритетном порядке
+//    List<Task> getPrioritizedTasks();  // Новый метод для получения приоритетных задач
+// --Commented out by Inspection STOP (10/12/24, 2:01 PM)
+}
