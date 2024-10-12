@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FieBackedTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Subtask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Task.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,10 +113,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.java-kanban [build]">
     <configuration name="FileBackedTaskManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.yapr.sprint4.task.kanban.FileBackedTaskManager" />
       <module name="java-kanban.main" />
@@ -238,7 +241,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728136726875</updated>
       <workItem from="1728136727877" duration="15442000" />
-      <workItem from="1728575264686" duration="3500000" />
+      <workItem from="1728575264686" duration="5503000" />
     </task>
     <task id="LOCAL-00001" summary="новый функционал">
       <option name="closed" value="true" />

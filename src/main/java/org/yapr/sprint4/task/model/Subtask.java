@@ -1,5 +1,7 @@
 package org.yapr.sprint4.task.model;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 // Класс для подзадач
@@ -8,6 +10,11 @@ public class Subtask extends Task {
 
     public Subtask(int id, String title, String description, Status status, int epicId) {
         super(id, title, description, status);
+        this.epicId = epicId;
+    }
+
+    public Subtask(int id, String title, String description, Status status, int epicId, Duration duration, LocalDateTime startTime) {
+        super(id, title, description, status, duration, startTime);
         this.epicId = epicId;
     }
 
@@ -30,5 +37,18 @@ public class Subtask extends Task {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), epicId);
+    }
+
+    @Override
+    public String toString() {
+        return "Subtask{" +
+                "epicId=" + epicId +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", startTime=" + startTime +
+                ", duration=" + duration +
+                '}';
     }
 }
