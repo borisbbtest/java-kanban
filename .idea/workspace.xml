@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
-      <change beforePath="$PROJECT_DIR$/test/java/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/TaskTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/InMemoryTaskManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +118,7 @@
     "JUnit.TaskImmutabilityTest.executor": "Run",
     "JUnit.TaskManagerTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "b4a8510c",
+    "git-widget-placeholder": "2b949d9d",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/boris_z/java-kanban",
     "node.js.detected.package.eslint": "true",
@@ -312,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728855427868</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="новый функционал">
+      <option name="closed" value="true" />
+      <created>1728855540068</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728855540068</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
