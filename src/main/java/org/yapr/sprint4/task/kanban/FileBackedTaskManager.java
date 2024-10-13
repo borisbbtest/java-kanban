@@ -145,7 +145,6 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                 throw new RuntimeException("Ошибка при парсинге приоритета: " + e.getMessage());
             }
         }
-
         return switch (type) {
             case "TASK" -> new Task(id, title, description, status,duration,startTime,priority);
             case "EPIC" -> new Epic(id, title, description);
