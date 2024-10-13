@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
