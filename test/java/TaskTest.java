@@ -19,7 +19,6 @@ public class TaskTest {
     }
 
     @Test
-
     void testEpicEqualityById() {
         Epic epic1 = new Epic(1, "Epic 1", "none");
         Epic epic2 = new Epic(1, "Epic 2", "none"); // Same ID, different name and status
