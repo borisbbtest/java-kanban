@@ -6,7 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/ManagerSaveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/ManagerSaveException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManagerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManagerApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Epic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Epic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Subtask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/FieBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FieBackedTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/HistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HistoryManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/InMemoryTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/ManagersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ManagersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/TaskFieldUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskFieldUpdateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/TaskIdConflictTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskIdConflictTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/TaskImmutabilityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskImmutabilityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/java/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +77,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="sprint_8-solution-time-and-duration" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -86,14 +105,21 @@
     "Gradle.EpicSubtaskIntegrityTest.executor": "Run",
     "Gradle.EpicSubtaskIntegrityTest.shouldNotAllowStaleSubtasksInEpic.executor": "Run",
     "Gradle.FieBackedTaskManagerTest.executor": "Run",
+    "Gradle.FieBackedTaskManagerTest.shouldSaveAndLoadEmptyFile.executor": "Run",
+    "Gradle.FieBackedTaskManagerTest.shouldSaveAndLoadMultipleTasks.executor": "Run",
+    "Gradle.FieBackedTaskManagerTest.shouldSaveAndLoadSingleTask.executor": "Run",
     "Gradle.FileBackedTaskManagerTest.executor": "Run",
     "Gradle.HistoryManagerTest.executor": "Run",
     "Gradle.HistoryManagerTest.shouldTrackHistoryInCorrectOrder.executor": "Run",
+    "Gradle.HistoryManagerTest.testRemoveFromHistoryEdgeCases.executor": "Run",
     "Gradle.InMemoryTaskManagerTest.executor": "Run",
+    "Gradle.InMemoryTaskManagerTest.testAddAndFindTasksById.executor": "Run",
     "Gradle.ManagersTest.executor": "Run",
     "Gradle.TaskFieldUpdateTest.executor": "Run",
+    "Gradle.TaskFieldUpdateTest.shouldUpdateTaskFieldsAndReflectChangesInManager.executor": "Run",
     "Gradle.TaskIdConflictTest.executor": "Run",
     "Gradle.TaskImmutabilityTest.executor": "Run",
+    "Gradle.TaskImmutabilityTest.testTaskImmutability.executor": "Run",
     "Gradle.TaskManagerTest.executor": "Run",
     "Gradle.TaskManagerTest.testCreateAndGetTask.executor": "Run",
     "Gradle.TaskManagerTest.testUpdateTask.executor": "Run",
@@ -111,7 +137,7 @@
     "JUnit.TaskImmutabilityTest.executor": "Run",
     "JUnit.TaskManagerTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "sprint__8-solution-time-and-duration",
+    "git-widget-placeholder": "ff7338a4",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/boris_z/java-kanban",
     "node.js.detected.package.eslint": "true",
@@ -126,13 +152,13 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.java-kanban [build]">
-    <configuration name="TaskImmutabilityTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.FieBackedTaskManagerTest">
+    <configuration name="FieBackedTaskManagerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -145,7 +171,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.TaskImmutabilityTest&quot;" />
+            <option value="&quot;FieBackedTaskManagerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -156,7 +182,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TaskManagerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FieBackedTaskManagerTest.shouldSaveAndLoadEmptyFile" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -169,7 +195,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.TaskManagerTest&quot;" />
+            <option value="&quot;FieBackedTaskManagerTest.shouldSaveAndLoadEmptyFile&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -180,7 +206,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TaskTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FieBackedTaskManagerTest.shouldSaveAndLoadMultipleTasks" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -193,7 +219,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.TaskTest&quot;" />
+            <option value="&quot;FieBackedTaskManagerTest.shouldSaveAndLoadMultipleTasks&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -204,50 +230,61 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="java-kanban [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FieBackedTaskManagerTest.shouldSaveAndLoadSingleTask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;FieBackedTaskManagerTest.shouldSaveAndLoadSingleTask&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FieBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FieBackedTaskManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="HistoryManagerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;HistoryManagerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.java-kanban [build]" />
-        <item itemvalue="Gradle.TaskManagerTest" />
-        <item itemvalue="JUnit.FieBackedTaskManagerTest" />
-        <item itemvalue="Gradle.TaskTest" />
-        <item itemvalue="Gradle.TaskImmutabilityTest" />
+        <item itemvalue="Gradle.FieBackedTaskManagerTest" />
+        <item itemvalue="Gradle.FieBackedTaskManagerTest.shouldSaveAndLoadMultipleTasks" />
+        <item itemvalue="Gradle.FieBackedTaskManagerTest.shouldSaveAndLoadEmptyFile" />
+        <item itemvalue="Gradle.FieBackedTaskManagerTest.shouldSaveAndLoadSingleTask" />
+        <item itemvalue="Gradle.HistoryManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -297,7 +334,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/sprint_8-solution-time-and-duration" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

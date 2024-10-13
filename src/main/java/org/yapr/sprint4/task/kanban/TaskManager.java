@@ -29,7 +29,9 @@ public interface TaskManager {
 
     void updateSubtask(Subtask subtask);
 
-    void deleteTaskById(int id);
+    boolean deleteTaskById(int id);
+
+    boolean isTimeOverlap(Task newTask);
 
     void deleteEpicById(int id);
 
@@ -40,9 +42,4 @@ public interface TaskManager {
     void deleteAllTasks();
 
     List<Task> getHistory();  // Метод для получения истории просмотров
-
-// --Commented out by Inspection START (10/12/24, 2:01 PM):
-//    // Добавьте метод для получения задач в приоритетном порядке
-//    List<Task> getPrioritizedTasks();  // Новый метод для получения приоритетных задач
-// --Commented out by Inspection STOP (10/12/24, 2:01 PM)
 }

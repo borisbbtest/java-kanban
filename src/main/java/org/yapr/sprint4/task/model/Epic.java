@@ -9,23 +9,18 @@ public class Epic extends Task {
     private final List<Subtask> subtasks;
 
     public Epic(int id, String title, String description) {
-        super(id, title, description, Status.NEW);
+        // Передаем null для duration и startTime
+        super(id, title, description, Status.NEW, null, null, null);
         this.subtasks = new ArrayList<>();
     }
 
-
-
-// --Commented out by Inspection START (10/12/24, 2:01 PM):
-//    public List<Subtask> getSubtasks() {
-//        return subtasks;
-//    }
-// --Commented out by Inspection STOP (10/12/24, 2:01 PM)
-
+    // Метод для добавления подзадачи
     public void addSubtask(Subtask subtask) {
         subtasks.add(subtask);
         updateStatus();
     }
 
+    // Метод для обновления статуса эпика на основе статусов подзадач
     public void updateStatus() {
         if (subtasks.isEmpty()) {
             setStatus(Status.NEW);
@@ -50,10 +45,15 @@ public class Epic extends Task {
         }
     }
 
-
+    // Метод для удаления подзадачи
     public void removeSubtask(Subtask subtask) {
         subtasks.remove(subtask);
         updateStatus();
+    }
+
+    // Метод для получения подзадач эпика
+    public List<Subtask> getSubtasks() {
+        return new ArrayList<>(subtasks);
     }
 
     @Override
@@ -69,4 +69,18 @@ public class Epic extends Task {
         return Objects.hash(super.hashCode(), subtasks);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getId()).append(","); // id
+        sb.append("EPIC").append(","); // type
+        sb.append(getTitle()).append(","); // name
+        sb.append(getStatus()).append(","); // status
+        sb.append(getDescription()).append(","); // description
+        sb.append("0").append(","); // duration
+        sb.append(","); // startTime
+        sb.append(","); // priority
+        sb.append(""); // epic
+        return sb.toString();
+    }
 }

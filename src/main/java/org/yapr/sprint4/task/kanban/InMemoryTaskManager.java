@@ -4,6 +4,7 @@ import org.yapr.sprint4.task.model.Epic;
 import org.yapr.sprint4.task.model.Subtask;
 import org.yapr.sprint4.task.model.Task;
 
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -14,39 +15,80 @@ public class InMemoryTaskManager implements TaskManager {
     protected final Map<Integer, Subtask> subtasks = new HashMap<>();
     protected final HistoryManager historyManager = Managers.getDefaultHistoryManager();
 
-    private int idCounter = 1; // Счётчик для генерации уникальных идентификаторов
+    // TreeSet для хранения задач, отсортированных по времени начала
+    protected final TreeSet<Task> prioritizedTasks = new TreeSet<>(Comparator.comparing(Task::getStartTime, Comparator.nullsLast(Comparator.naturalOrder())));
+
+    private int idCounter = 1;
 
     @Override
     public List<Task> getPrioritizedTasks() {
-        return Stream.concat(Stream.concat(tasks.values().stream(), epics.values().stream()), subtasks.values().stream())
-                .sorted(Comparator.comparing(Task::getPriority))
-                .collect(Collectors.toList());
+        return new ArrayList<>(prioritizedTasks);
+    }
+
+    private boolean hasTimeIntersection(Task newTask) {
+        return prioritizedTasks.stream().anyMatch(task -> task.getStartTime() != null && task.getEndTime() != null &&
+                newTask.getStartTime() != null &&
+                task.getStartTime().isBefore(newTask.getEndTime()) &&  newTask.getStartTime().isBefore(task.getEndTime()));
     }
 
     @Override
     public void createTask(Task task) {
+        if (task.getStartTime() != null && task.getEndTime() != null && hasTimeIntersection(task)) {
+            throw new IllegalArgumentException("Задача пересекается с уже существующей задачей по времени.");
+        }
         task.setId(generateId());
         tasks.put(task.getId(), task);
+        if (task.getStartTime() != null) {
+            prioritizedTasks.add(task);
+        }
+    }
+
+    // Метод для проверки пересечения по времени
+    public boolean isTimeOverlap(Task newTask) {
+        return prioritizedTasks.stream()
+                .filter(existingTask -> existingTask.getStartTime() != null && newTask.getStartTime() != null)
+                .anyMatch(existingTask ->
+                        newTask.getStartTime().isBefore(existingTask.getStartTime().plus(newTask.getDuration())) &&
+                                existingTask.getStartTime().isBefore(newTask.getStartTime().plus(existingTask.getDuration()))
+                );
     }
 
     @Override
     public void updateTask(Task task) {
-        int id = task.getId();
-        if (tasks.containsKey(id)) {
-            tasks.put(id, task);
+        if (tasks.containsKey(task.getId())) {
+            // Удаляем задачу из списка приоритезированных задач перед проверкой
+            prioritizedTasks.remove(tasks.get(task.getId()));
+
+            // Проверка на пересечение только с другими задачами
+            if (task.getStartTime() != null && task.getEndTime() != null && hasTimeIntersection(task)) {
+                // Добавляем задачу обратно, если проверка не прошла
+                prioritizedTasks.add(tasks.get(task.getId()));
+                throw new IllegalArgumentException("Задача пересекается с уже существующей задачей по времени.");
+            }
+
+            // Обновляем задачу в менеджере
+            tasks.put(task.getId(), task);
+
+            // Если у задачи есть время начала, добавляем её обратно в приоритезированный список
+            if (task.getStartTime() != null) {
+                prioritizedTasks.add(task);
+            }
         } else {
-            System.out.println("Задача с ID " + id + " не найдена.");
+            System.out.println("Задача с ID " + task.getId() + " не найдена.");
         }
     }
 
     @Override
-    public void deleteTaskById(int id) {
+    public boolean deleteTaskById(int id) {
         if (tasks.containsKey(id)) {
-            tasks.remove(id);
+            Task removedTask = tasks.remove(id);
+            prioritizedTasks.remove(removedTask);
             historyManager.remove(id);
+            return  true;
         } else {
             System.out.println("Задача с ID " + id + " не найдена.");
         }
+        return false;
     }
 
     @Override
@@ -57,12 +99,10 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public void updateEpic(Epic epic) {
-        int id = epic.getId();
-        if (epics.containsKey(id)) {
-            epics.put(id, epic);
-            epic.updateStatus();
+        if (epics.containsKey(epic.getId())) {
+            epics.put(epic.getId(), epic);
         } else {
-            System.out.println("Эпик с ID " + id + " не найден.");
+            System.out.println("Эпик с ID " + epic.getId() + " не найден.");
         }
     }
 
@@ -70,9 +110,8 @@ public class InMemoryTaskManager implements TaskManager {
     public void deleteEpicById(int id) {
         if (epics.containsKey(id)) {
             epics.remove(id);
-            historyManager.remove(id);
-
             subtasks.values().removeIf(subtask -> subtask.getEpicId() == id);
+            historyManager.remove(id);
         } else {
             System.out.println("Эпик с ID " + id + " не найден.");
         }
@@ -80,38 +119,50 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public void createSubtask(Subtask subtask) {
+        if (subtask.getStartTime() != null && subtask.getEndTime() != null && hasTimeIntersection(subtask)) {
+            throw new IllegalArgumentException("Подзадача пересекается с уже существующей задачей по времени.");
+        }
         subtask.setId(generateId());
         subtasks.put(subtask.getId(), subtask);
         Epic epic = epics.get(subtask.getEpicId());
         if (epic != null) {
             epic.addSubtask(subtask);
-            epic.updateStatus();
+        }
+        if (subtask.getStartTime() != null) {
+            prioritizedTasks.add(subtask);
         }
     }
 
     @Override
     public void updateSubtask(Subtask subtask) {
-        int id = subtask.getId();
-        if (subtasks.containsKey(id)) {
-            subtasks.put(id, subtask);
-            Epic epic = epics.get(subtask.getEpicId());
-            if (epic != null) {
-                epic.updateStatus();
+        if (subtasks.containsKey(subtask.getId())) {
+            // Удаляем подзадачу из списка приоритезированных задач перед проверкой на пересечение
+            prioritizedTasks.remove(subtasks.get(subtask.getId()));
+
+            // Проверка на пересечение только с другими задачами (исключая саму себя)
+            if (subtask.getStartTime() != null && subtask.getEndTime() != null && hasTimeIntersection(subtask)) {
+                // Добавляем подзадачу обратно, если проверка не прошла
+                prioritizedTasks.add(subtasks.get(subtask.getId()));
+                throw new IllegalArgumentException("Подзадача пересекается с уже существующей задачей по времени.");
+            }
+
+            // Обновляем подзадачу
+            subtasks.put(subtask.getId(), subtask);
+
+            // Если есть время начала, добавляем задачу обратно в приоритезированный список
+            if (subtask.getStartTime() != null) {
+                prioritizedTasks.add(subtask);
             }
         } else {
-            System.out.println("Подзадача с ID " + id + " не найдена.");
+            System.out.println("Подзадача с ID " + subtask.getId() + " не найдена.");
         }
     }
 
     @Override
     public void deleteSubtaskById(int id) {
         if (subtasks.containsKey(id)) {
-            Subtask subtask = subtasks.remove(id);
-            Epic epic = epics.get(subtask.getEpicId());
-            if (epic != null) {
-                epic.removeSubtask(subtask);
-                epic.updateStatus();
-            }
+            Subtask removedSubtask = subtasks.remove(id);
+            prioritizedTasks.remove(removedSubtask);
             historyManager.remove(id);
         } else {
             System.out.println("Подзадача с ID " + id + " не найдена.");
@@ -130,6 +181,7 @@ public class InMemoryTaskManager implements TaskManager {
         tasks.clear();
         epics.clear();
         subtasks.clear();
+        prioritizedTasks.clear();
         historyManager.clear();
     }
 

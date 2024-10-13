@@ -2,6 +2,8 @@ package org.yapr.sprint4.task.kanban;
 
 import org.yapr.sprint4.task.model.*;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -58,9 +60,25 @@ public class TaskManagerApp {
         System.out.println("Введите статус задачи (NEW, IN_PROGRESS, DONE):");
         Status status = Status.valueOf(scanner.nextLine().toUpperCase());
 
-        Task task = new Task(0, title, description, status);
-        taskManager.createTask(task);
-        System.out.println("Задача создана с ID: " + task.getId());
+        // Ввод для Duration и LocalDateTime
+        System.out.println("Введите продолжительность задачи в минутах (0, если не задана):");
+        long durationInput = Long.parseLong(scanner.nextLine());
+        Duration duration = durationInput > 0 ? Duration.ofMinutes(durationInput) : null;
+
+        System.out.println("Введите дату и время начала задачи в формате YYYY-MM-DDTHH:MM (оставьте пустым, если не задана):");
+        String startTimeInput = scanner.nextLine();
+        LocalDateTime startTime = startTimeInput.isEmpty() ? null : LocalDateTime.parse(startTimeInput);
+
+        System.out.println("Введите приоритет задачи (целое число, 1 - низкий, 10 - высокий):");
+        int priority = Integer.parseInt(scanner.nextLine());
+
+        Task task = new Task(0, title, description, status, duration, startTime, priority);
+        if (taskManager.isTimeOverlap(task)) {
+            System.out.println("Ошибка: Задача пересекается с другой задачей по времени.");
+        } else {
+            taskManager.createTask(task);
+            System.out.println("Задача создана с ID: " + task.getId());
+        }
     }
 
     private static void createEpic() {
@@ -84,9 +102,25 @@ public class TaskManagerApp {
         System.out.println("Введите статус подзадачи (NEW, IN_PROGRESS, DONE):");
         Status status = Status.valueOf(scanner.nextLine().toUpperCase());
 
-        Subtask subtask = new Subtask(0, title, description, status, epicId);
-        taskManager.createSubtask(subtask);
-        System.out.println("Подзадача создана с ID: " + subtask.getId());
+        // Ввод для Duration и LocalDateTime
+        System.out.println("Введите продолжительность подзадачи в минутах (0, если не задана):");
+        long durationInput = Long.parseLong(scanner.nextLine());
+        Duration duration = durationInput > 0 ? Duration.ofMinutes(durationInput) : null;
+
+        System.out.println("Введите дату и время начала подзадачи в формате YYYY-MM-DDTHH:MM (оставьте пустым, если не задана):");
+        String startTimeInput = scanner.nextLine();
+        LocalDateTime startTime = startTimeInput.isEmpty() ? null : LocalDateTime.parse(startTimeInput);
+
+        System.out.println("Введите приоритет подзадачи (целое число, 1 - низкий, 10 - высокий):");
+        int priority = Integer.parseInt(scanner.nextLine());
+
+        Subtask subtask = new Subtask(0, title, description, status, epicId, duration, startTime, priority);
+        if (taskManager.isTimeOverlap(subtask)) {
+            System.out.println("Ошибка: Подзадача пересекается с другой задачей по времени.");
+        } else {
+            taskManager.createSubtask(subtask);
+            System.out.println("Подзадача создана с ID: " + subtask.getId());
+        }
     }
 
     private static void updateTask() {
@@ -102,11 +136,30 @@ public class TaskManagerApp {
             System.out.println("Введите новый статус задачи (NEW, IN_PROGRESS, DONE):");
             Status status = Status.valueOf(scanner.nextLine().toUpperCase());
 
+            System.out.println("Введите новую продолжительность задачи в минутах (0, если не задана):");
+            long durationInput = Long.parseLong(scanner.nextLine());
+            Duration duration = durationInput > 0 ? Duration.ofMinutes(durationInput) : null;
+
+            System.out.println("Введите новое время начала задачи в формате YYYY-MM-DDTHH:MM (оставьте пустым, если не задана):");
+            String startTimeInput = scanner.nextLine();
+            LocalDateTime startTime = startTimeInput.isEmpty() ? null : LocalDateTime.parse(startTimeInput);
+
+            System.out.println("Введите новый приоритет задачи (целое число, 1 - низкий, 10 - высокий):");
+            int priority = Integer.parseInt(scanner.nextLine());
+
             task.setTitle(title);
             task.setDescription(description);
             task.setStatus(status);
-            taskManager.updateTask(task);
-            System.out.println("Задача обновлена.");
+            task.setDuration(duration);
+            task.setStartTime(startTime);
+            task.setPriority(priority);
+
+            if (taskManager.isTimeOverlap(task)) {
+                System.out.println("Ошибка: Задача пересекается с другой задачей по времени.");
+            } else {
+                taskManager.updateTask(task);
+                System.out.println("Задача обновлена.");
+            }
         } else {
             Epic epic = taskManager.getEpicById(id);
             if (epic != null) {
@@ -129,13 +182,32 @@ public class TaskManagerApp {
                     System.out.println("Введите новый статус подзадачи (NEW, IN_PROGRESS, DONE):");
                     Status status = Status.valueOf(scanner.nextLine().toUpperCase());
 
+                    System.out.println("Введите новую продолжительность подзадачи в минутах (0, если не задана):");
+                    long durationInput = Long.parseLong(scanner.nextLine());
+                    Duration duration = durationInput > 0 ? Duration.ofMinutes(durationInput) : null;
+
+                    System.out.println("Введите новое время начала подзадачи в формате YYYY-MM-DDTHH:MM (оставьте пустым, если не задана):");
+                    String startTimeInput = scanner.nextLine();
+                    LocalDateTime startTime = startTimeInput.isEmpty() ? null : LocalDateTime.parse(startTimeInput);
+
+                    System.out.println("Введите новый приоритет подзадачи (целое число, 1 - низкий, 10 - высокий):");
+                    int priority = Integer.parseInt(scanner.nextLine());
+
                     subtask.setTitle(title);
                     subtask.setDescription(description);
                     subtask.setStatus(status);
-                    taskManager.updateSubtask(subtask);
-                    System.out.println("Подзадача обновлена.");
+                    subtask.setDuration(duration);
+                    subtask.setStartTime(startTime);
+                    subtask.setPriority(priority);
+
+                    if (taskManager.isTimeOverlap(subtask)) {
+                        System.out.println("Ошибка: Подзадача пересекается с другой задачей по времени.");
+                    } else {
+                        taskManager.updateSubtask(subtask);
+                        System.out.println("Подзадача обновлена.");
+                    }
                 } else {
-                    System.out.println("Задача с ID " + id + " не найдена.");
+                    System.out.println("Задача с указанным ID не найдена.");
                 }
             }
         }
@@ -144,18 +216,10 @@ public class TaskManagerApp {
     private static void deleteTaskById() {
         System.out.println("Введите ID задачи для удаления:");
         int id = Integer.parseInt(scanner.nextLine());
-
-        if (taskManager.getTaskById(id) != null) {
-            taskManager.deleteTaskById(id);
+        if (taskManager.deleteTaskById(id)) {
             System.out.println("Задача удалена.");
-        } else if (taskManager.getEpicById(id) != null) {
-            taskManager.deleteEpicById(id);
-            System.out.println("Эпик и связанные подзадачи удалены.");
-        } else if (taskManager.getSubtaskById(id) != null) {
-            taskManager.deleteSubtaskById(id);
-            System.out.println("Подзадача удалена.");
         } else {
-            System.out.println("Задача с ID " + id + " не найдена.");
+            System.out.println("Задача с указанным ID не найдена.");
         }
     }
 
@@ -167,60 +231,40 @@ public class TaskManagerApp {
     private static void getTaskById() {
         System.out.println("Введите ID задачи для получения:");
         int id = Integer.parseInt(scanner.nextLine());
-
         Task task = taskManager.getTaskById(id);
         if (task != null) {
             System.out.println("Задача: " + task);
         } else {
-            Epic epic = taskManager.getEpicById(id);
-            if (epic != null) {
-                System.out.println("Эпик: " + epic);
-            } else {
-                Subtask subtask = taskManager.getSubtaskById(id);
-                if (subtask != null) {
-                    System.out.println("Подзадача: " + subtask);
-                } else {
-                    System.out.println("Задача с ID " + id + " не найдена.");
-                }
-            }
-        }
-    }
-
-    private static void printHistory() {
-        List<Task> history = taskManager.getHistory();
-        if (history.isEmpty()) {
-            System.out.println("История просмотров пуста.");
-        } else {
-            System.out.println("Последние просмотренные задачи:");
-            for (Task task : history) {
-                System.out.println(task);
-            }
+            System.out.println("Задача с указанным ID не найдена.");
         }
     }
 
     private static void getAllTasks() {
-        List<Task> allTasks = taskManager.getAllTasks();
-        if (allTasks.isEmpty()) {
-            System.out.println("Список задач пуст.");
-        } else {
-            allTasks.forEach(task -> System.out.println("Задача: " + task));
-        }
+        List<Task> tasks = taskManager.getAllTasks();
+        System.out.println("Все задачи:");
+        tasks.forEach(System.out::println);
     }
 
     private static void getSubtasksForEpic() {
         System.out.println("Введите ID эпика для получения подзадач:");
         int epicId = Integer.parseInt(scanner.nextLine());
-
         List<Subtask> subtasks = taskManager.getSubtasksForEpic(epicId);
-        if (subtasks.isEmpty()) {
-            System.out.println("У эпика нет подзадач или эпик не найден.");
-        } else {
-            subtasks.forEach(subtask -> System.out.println("Подзадача: " + subtask));
-        }
+        System.out.println("Подзадачи для эпика с ID " + epicId + ":");
+        subtasks.forEach(System.out::println);
     }
 
     private static void deleteAllTasksAndEpics() {
         taskManager.deleteAllTasks();
-        System.out.println("Все задачи, эпики и связанные с ними подзадачи удалены.");
+        System.out.println("Все задачи и эпики удалены.");
+    }
+
+    private static void printHistory() {
+        List<Task> history = taskManager.getHistory();
+        System.out.println("История просмотров:");
+        history.forEach(System.out::println);
+    }
+
+    public static void main(String[] args) {
+        run();
     }
 }

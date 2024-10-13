@@ -1,13 +1,15 @@
 package org.yapr.sprint4.task.model;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 // Класс для подзадач
 public class Subtask extends Task {
     private int epicId;
 
-    public Subtask(int id, String title, String description, Status status, int epicId) {
-        super(id, title, description, status);
+    public Subtask(int id, String title, String description, Status status, int epicId, Duration duration, LocalDateTime startTime, Integer priority) {
+        super(id, title, description, status, duration, startTime,priority);
         this.epicId = epicId;
     }
 
@@ -30,14 +32,16 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return "Subtask{" +
-                "epicId=" + epicId +
-                ", id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                ", startTime=" + startTime +
-                ", duration=" + duration +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(getId()).append(","); // id
+        sb.append("SUBTASK").append(","); // type
+        sb.append(getTitle()).append(","); // name
+        sb.append(getStatus()).append(","); // status
+        sb.append(getDescription()).append(","); // description
+        sb.append(getDuration() != null ? getDuration().toMinutes() : "0").append(","); // duration
+        sb.append(getStartTime() != null ? getStartTime() : "").append(","); // startTime
+        sb.append(getPriority() != null ? getPriority() : "").append(","); // priority
+        sb.append(epicId); // epicId
+        return sb.toString();
     }
 }

@@ -5,6 +5,8 @@ import org.yapr.sprint4.task.kanban.Managers;
 import org.yapr.sprint4.task.kanban.TaskManager;
 import org.yapr.sprint4.task.kanban.HistoryManager;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +24,7 @@ class HistoryManagerTest {
 
     @Test
     void shouldAddTaskToHistory() {
-        Task task = new Task(1, "Test Task", "Description", Status.NEW);
+        Task task = new Task(1, "Test Task", "Description", Status.NEW, Duration.ofMinutes(30), LocalDateTime.now(), 1);
         taskManager.createTask(task);
 
         taskManager.getTaskById(task.getId());
@@ -34,7 +36,7 @@ class HistoryManagerTest {
 
     @Test
     void shouldRemoveTaskFromHistory() {
-        Task task = new Task(1, "Test Task", "Description", Status.NEW);
+        Task task = new Task(1, "Test Task", "Description", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
         taskManager.createTask(task);
 
         taskManager.getTaskById(task.getId());
@@ -46,7 +48,7 @@ class HistoryManagerTest {
 
     @Test
     void shouldNotAllowDuplicateTasksInHistory() {
-        Task task = new Task(1, "Test Task", "Description", Status.NEW);
+        Task task = new Task(1, "Test Task", "Description", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
         taskManager.createTask(task);
 
         taskManager.getTaskById(task.getId());
@@ -58,8 +60,8 @@ class HistoryManagerTest {
 
     @Test
     void shouldTrackHistoryInCorrectOrder() {
-        Task task1 = new Task(1, "Task 1", "Description 1", Status.NEW);
-        Task task2 = new Task(2, "Task 2", "Description 2", Status.IN_PROGRESS);
+        Task task1 = new Task(1, "Task 1", "Description 1", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
+        Task task2 = new Task(2, "Task 2", "Description 2", Status.IN_PROGRESS,Duration.ofMinutes(30), LocalDateTime.now().plusMinutes(100), 1);
         taskManager.createTask(task1);
         taskManager.createTask(task2);
 
@@ -79,14 +81,14 @@ class HistoryManagerTest {
 
     @Test
     void testAddTask() {
-        Task task = new Task(1, "Test Task", "Description", Status.NEW);
+        Task task = new Task(1, "Test Task", "Description", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
         historyManager.add(task);
         assertEquals(1, historyManager.getHistory().size());
     }
 
     @Test
     void testDuplicateTask() {
-        Task task = new Task(1, "Test Task", "Description", Status.NEW);
+        Task task = new Task(1, "Test Task", "Description", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
         historyManager.add(task);
         historyManager.add(task);
         assertEquals(1, historyManager.getHistory().size());
@@ -94,8 +96,8 @@ class HistoryManagerTest {
 
     @Test
     void testRemoveFromHistory() {
-        Task task1 = new Task(1, "Test Task 1", "Description", Status.NEW);
-        Task task2 = new Task(2, "Test Task 2", "Description", Status.NEW);
+        Task task1 = new Task(1, "Test Task 1", "Description", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
+        Task task2 = new Task(2, "Test Task 2", "Description", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
         historyManager.add(task1);
         historyManager.add(task2);
         historyManager.remove(task1.getId());
@@ -106,8 +108,8 @@ class HistoryManagerTest {
 
     @Test
     void testRemoveFromHistoryEdgeCases() {
-        Task task1 = new Task(1, "Test Task 1", "Description", Status.NEW);
-        Task task2 = new Task(2, "Test Task 2", "Description", Status.NEW);
+        Task task1 = new Task(1, "Test Task 1", "Description", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
+        Task task2 = new Task(2, "Test Task 2", "Description", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
         historyManager.add(task1);
         historyManager.add(task2);
 
