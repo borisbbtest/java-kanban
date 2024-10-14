@@ -3,6 +3,9 @@ import org.yapr.sprint4.task.kanban.Managers;
 import org.yapr.sprint4.task.kanban.TaskManager;
 import org.yapr.sprint4.task.model.*;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TaskFieldUpdateTest {
@@ -11,7 +14,7 @@ class TaskFieldUpdateTest {
 
     @Test
     void shouldUpdateTaskFieldsAndReflectChangesInManager() {
-        Task task = new Task(1, "Initial Title", "Initial Description", Status.NEW);
+        Task task = new Task(22, "Initial Title", "Initial Description", Status.NEW, Duration.ofMinutes(30), LocalDateTime.now().plusMinutes(44));
         taskManager.createTask(task);
 
         task.setTitle("Updated Title");

@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,14 +33,13 @@ class FieBackedTaskManagerTest {
         FileBackedTaskManager manager = new FileBackedTaskManager(tempFile);
 
         // Создаём задачи, эпики и подзадачи
-        Task task1 = new Task(0, "Task 1", "Description 1", Status.NEW);
+        Task task1 = new Task(0, "Task 1", "Description 1", Status.NEW, Duration.ofMinutes(30), LocalDateTime.now());
         manager.createTask(task1);
 
         Epic epic1 = new Epic(0, "Epic 1", "Description Epic 1");
         manager.createEpic(epic1);
 
-        Subtask subtask1 = new Subtask(0, "Subtask 1", "Description Subtask 1", Status.NEW, epic1.getId());
-        manager.createSubtask(subtask1);
+        Subtask subtask1 = new Subtask(0, "Subtask 1", "Description Subtask 1", Status.NEW, epic1.getId(),Duration.ofMinutes(30), LocalDateTime.now().plusMinutes(40));        manager.createSubtask(subtask1);
 
         // Сохраняем состояние
         FileBackedTaskManager loadedManager = FileBackedTaskManager.loadFromFile(tempFile);
@@ -46,8 +47,10 @@ class FieBackedTaskManagerTest {
         // Проверяем, что все задачи восстановлены
         assertEquals(3, loadedManager.getAllTasks().size(), "Все задачи должны быть восстановлены");
         assertEquals(task1, loadedManager.getTaskById(task1.getId()), "Задача должна быть восстановлена");
-        assertEquals(epic1, loadedManager.getEpicById(epic1.getId()), "Эпик должен быть восстановлен");
-        assertEquals(subtask1, loadedManager.getSubtaskById(subtask1.getId()), "Подзадача должна быть восстановлена");
+        Epic epic2 =loadedManager.getEpicById(epic1.getId());
+        assertEquals(epic1, epic2, "Эпик должен быть восстановлен");
+        Subtask subtask2 = loadedManager.getSubtaskById(subtask1.getId());
+        assertEquals(subtask1, subtask2, "Подзадача должна быть восстановлена");
     }
 
     @Test
@@ -56,7 +59,7 @@ class FieBackedTaskManagerTest {
         FileBackedTaskManager manager = new FileBackedTaskManager(tempFile);
 
         // Создаём одну задачу
-        Task task1 = new Task(0, "Task 1", "Description 1", Status.NEW);
+        Task task1 = new Task(0, "Task 1", "Description 1", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now());
         manager.createTask(task1);
 
         // Загружаем из файла

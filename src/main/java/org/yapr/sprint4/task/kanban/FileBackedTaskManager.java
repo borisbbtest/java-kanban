@@ -1,13 +1,15 @@
 package org.yapr.sprint4.task.kanban;
 
 import org.yapr.sprint4.task.model.Epic;
+import org.yapr.sprint4.task.model.Status;
 import org.yapr.sprint4.task.model.Subtask;
 import org.yapr.sprint4.task.model.Task;
-import org.yapr.sprint4.task.model.Status;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class FileBackedTaskManager extends InMemoryTaskManager {
@@ -40,6 +42,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         return manager;
     }
 
+
     @Override
     public void createTask(Task task) {
         super.createTask(task);
@@ -53,9 +56,10 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     }
 
     @Override
-    public void deleteTaskById(int id) {
+    public boolean deleteTaskById(int id) {
         super.deleteTaskById(id);
         save();
+        return  true;
     }
 
     @Override
@@ -103,30 +107,14 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     // Метод для сохранения состояния менеджера в файл
     private void save() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write("id,type,name,status,description,epic\n");
+            writer.write("id,type,name,status,description,duration,startTime,epic\n");
             for (Task task : getAllTasks()) {
-                writer.write(taskToString(task));
+                writer.write(task.toString());
                 writer.newLine();
             }
         } catch (IOException e) {
             throw new ManagerSaveException("Ошибка при сохранении в файл: " + e.getMessage());
         }
-    }
-
-    // Преобразование задачи в строку для сохранения в файл
-    private String taskToString(Task task) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(task.getId()).append(",");
-        sb.append(task.getClass().getSimpleName().toUpperCase()).append(",");
-        sb.append(task.getTitle()).append(",");
-        sb.append(task.getStatus()).append(",");
-        sb.append(task.getDescription()).append(",");
-
-        if (task instanceof Subtask) {
-            sb.append(((Subtask) task).getEpicId());
-        }
-
-        return sb.toString();
     }
 
     // Восстановление задачи из строки
@@ -137,16 +125,26 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         String title = fields[2];
         Status status = Status.valueOf(fields[3]);
         String description = fields[4];
+        Duration duration = null;
+        LocalDateTime startTime = null;
+
+         if (!type.equals("EPIC") && !fields[6].isEmpty()) {
+            startTime = LocalDateTime.parse(fields[6]);
+        }
+
+        if (!type.equals("EPIC") && !fields[5].isEmpty()) {
+            duration = Duration.ofMinutes(Long.parseLong(fields[5]));
+        }
+
 
         return switch (type) {
-            case "TASK" -> new Task(id, title, description, status);
+            case "TASK" -> new Task(id, title, description, status,duration,startTime);
             case "EPIC" -> new Epic(id, title, description);
             case "SUBTASK" -> {
-                int epicId = Integer.parseInt(fields[5]);
-                yield new Subtask(id, title, description, status, epicId);
+                int epicId = Integer.parseInt(fields[7]);
+                yield new Subtask(id, title, description, status, epicId,duration,startTime);
             }
             default -> throw new IllegalArgumentException("Неизвестный тип задачи: " + type);
         };
     }
-
 }

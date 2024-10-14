@@ -15,6 +15,8 @@ public interface TaskManager {
 
     Subtask getSubtaskById(int id);
 
+    List<Task> getPrioritizedTasks();
+
     void createTask(Task task);
 
     void createEpic(Epic epic);
@@ -27,7 +29,9 @@ public interface TaskManager {
 
     void updateSubtask(Subtask subtask);
 
-    void deleteTaskById(int id);
+    boolean deleteTaskById(int id);
+
+    boolean hasTimeIntersection(Task newTask);
 
     void deleteEpicById(int id);
 
@@ -37,6 +41,5 @@ public interface TaskManager {
 
     void deleteAllTasks();
 
-    List<Task> getHistory();  // Новый метод для получения истории просмотров
+    List<Task> getHistory();  // Метод для получения истории просмотров
 }
-
