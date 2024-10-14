@@ -24,32 +24,39 @@ public class InMemoryTaskManager implements TaskManager {
         return new ArrayList<>(prioritizedTasks);
     }
 
-    private boolean hasTimeIntersection(Task newTask) {
-        return prioritizedTasks.stream().anyMatch(task -> task.getStartTime() != null && task.getEndTime() != null &&
-                newTask.getStartTime() != null &&
-                task.getStartTime().isBefore(newTask.getEndTime()) &&  newTask.getStartTime().isBefore(task.getEndTime()));
+    // Метод для проверки пересечения по времени
+    private boolean isTimeOverlap(Task task1, Task task2) {
+        // Проверяем, что обе задачи имеют время начала и окончания
+        if (task1.getStartTime() == null || task1.getEndTime() == null ||
+                task2.getStartTime() == null || task2.getEndTime() == null) {
+            return false;
+        }
+
+        // Проверка на пересечение отрезков времени
+        return task1.getStartTime().isBefore(task2.getEndTime()) &&
+                task1.getEndTime().isAfter(task2.getStartTime());
+    }
+
+    // Используем Stream API для проверки пересечения по времени
+    public boolean hasTimeIntersection(Task newTask) {
+        return prioritizedTasks.stream()
+                .filter(task -> task.getId() != newTask.getId()) // Исключаем саму себя (для update)
+                .anyMatch(existingTask -> isTimeOverlap(newTask, existingTask));
     }
 
     @Override
     public void createTask(Task task) {
+        // Проверка на пересечение по времени перед добавлением
         if (task.getStartTime() != null && task.getEndTime() != null && hasTimeIntersection(task)) {
             throw new IllegalArgumentException("Задача пересекается с уже существующей задачей по времени.");
         }
         task.setId(generateId());
         tasks.put(task.getId(), task);
+
+        // Добавляем задачу в приоритезированный список, если есть время начала
         if (task.getStartTime() != null) {
             prioritizedTasks.add(task);
         }
-    }
-
-    // Метод для проверки пересечения по времени
-    public boolean isTimeOverlap(Task newTask) {
-        return prioritizedTasks.stream()
-                .filter(existingTask -> existingTask.getStartTime() != null && newTask.getStartTime() != null)
-                .anyMatch(existingTask ->
-                        newTask.getStartTime().isBefore(existingTask.getStartTime().plus(newTask.getDuration())) &&
-                                existingTask.getStartTime().isBefore(newTask.getStartTime().plus(existingTask.getDuration()))
-                );
     }
 
     @Override
@@ -83,7 +90,7 @@ public class InMemoryTaskManager implements TaskManager {
             Task removedTask = tasks.remove(id);
             prioritizedTasks.remove(removedTask);
             historyManager.remove(id);
-            return  true;
+            return true;
         } else {
             System.out.println("Задача с ID " + id + " не найдена.");
         }
@@ -118,6 +125,7 @@ public class InMemoryTaskManager implements TaskManager {
 
     @Override
     public void createSubtask(Subtask subtask) {
+        // Проверка на пересечение по времени перед добавлением
         if (subtask.getStartTime() != null && subtask.getEndTime() != null && hasTimeIntersection(subtask)) {
             throw new IllegalArgumentException("Подзадача пересекается с уже существующей задачей по времени.");
         }
@@ -127,6 +135,8 @@ public class InMemoryTaskManager implements TaskManager {
         if (epic != null) {
             epic.addSubtask(subtask);
         }
+
+        // Добавляем подзадачу в приоритезированный список, если есть время начала
         if (subtask.getStartTime() != null) {
             prioritizedTasks.add(subtask);
         }

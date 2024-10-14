@@ -69,11 +69,8 @@ public class TaskManagerApp {
         String startTimeInput = scanner.nextLine();
         LocalDateTime startTime = startTimeInput.isEmpty() ? null : LocalDateTime.parse(startTimeInput);
 
-        System.out.println("Введите приоритет задачи (целое число, 1 - низкий, 10 - высокий):");
-        int priority = Integer.parseInt(scanner.nextLine());
-
-        Task task = new Task(0, title, description, status, duration, startTime, priority);
-        if (taskManager.isTimeOverlap(task)) {
+        Task task = new Task(0, title, description, status, duration, startTime);
+        if (taskManager.hasTimeIntersection(task)) {
             System.out.println("Ошибка: Задача пересекается с другой задачей по времени.");
         } else {
             taskManager.createTask(task);
@@ -111,11 +108,8 @@ public class TaskManagerApp {
         String startTimeInput = scanner.nextLine();
         LocalDateTime startTime = startTimeInput.isEmpty() ? null : LocalDateTime.parse(startTimeInput);
 
-        System.out.println("Введите приоритет подзадачи (целое число, 1 - низкий, 10 - высокий):");
-        int priority = Integer.parseInt(scanner.nextLine());
-
-        Subtask subtask = new Subtask(0, title, description, status, epicId, duration, startTime, priority);
-        if (taskManager.isTimeOverlap(subtask)) {
+        Subtask subtask = new Subtask(0, title, description, status, epicId, duration, startTime);
+        if (taskManager.hasTimeIntersection(subtask)) {
             System.out.println("Ошибка: Подзадача пересекается с другой задачей по времени.");
         } else {
             taskManager.createSubtask(subtask);
@@ -144,17 +138,13 @@ public class TaskManagerApp {
             String startTimeInput = scanner.nextLine();
             LocalDateTime startTime = startTimeInput.isEmpty() ? null : LocalDateTime.parse(startTimeInput);
 
-            System.out.println("Введите новый приоритет задачи (целое число, 1 - низкий, 10 - высокий):");
-            int priority = Integer.parseInt(scanner.nextLine());
-
             task.setTitle(title);
             task.setDescription(description);
             task.setStatus(status);
             task.setDuration(duration);
             task.setStartTime(startTime);
-            task.setPriority(priority);
 
-            if (taskManager.isTimeOverlap(task)) {
+            if (taskManager.hasTimeIntersection(task)) {
                 System.out.println("Ошибка: Задача пересекается с другой задачей по времени.");
             } else {
                 taskManager.updateTask(task);
@@ -198,9 +188,8 @@ public class TaskManagerApp {
                     subtask.setStatus(status);
                     subtask.setDuration(duration);
                     subtask.setStartTime(startTime);
-                    subtask.setPriority(priority);
 
-                    if (taskManager.isTimeOverlap(subtask)) {
+                    if (taskManager.hasTimeIntersection(subtask)) {
                         System.out.println("Ошибка: Подзадача пересекается с другой задачей по времени.");
                     } else {
                         taskManager.updateSubtask(subtask);

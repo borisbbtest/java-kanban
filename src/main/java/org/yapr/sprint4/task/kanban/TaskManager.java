@@ -31,7 +31,7 @@ public interface TaskManager {
 
     boolean deleteTaskById(int id);
 
-    boolean isTimeOverlap(Task newTask);
+    boolean hasTimeIntersection(Task newTask);
 
     void deleteEpicById(int id);
 

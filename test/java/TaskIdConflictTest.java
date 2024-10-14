@@ -13,10 +13,10 @@ public class TaskIdConflictTest {
     public void testIdConflict() {
         InMemoryTaskManager manager = new InMemoryTaskManager();
 
-        Task taskWithGeneratedId = new Task(1, "Задача", "Описание", Status.DONE, Duration.ofMinutes(30), LocalDateTime.now(), 1);
+        Task taskWithGeneratedId = new Task(1, "Задача", "Описание", Status.DONE, Duration.ofMinutes(30), LocalDateTime.now());
         manager.createTask(taskWithGeneratedId);
 
-        Task taskWithSpecificId = new Task(1, "Измененная задача", "Новое описание", Status.DONE, Duration.ofMinutes(45), LocalDateTime.now().plusMinutes(45), 1);
+        Task taskWithSpecificId = new Task(1, "Измененная задача", "Новое описание", Status.DONE, Duration.ofMinutes(45), LocalDateTime.now().plusMinutes(45));
         manager.createTask(taskWithSpecificId);
 
         assertEquals(2, manager.getAllTasks().size(), "Tasks with generated and specific IDs should not conflict.");

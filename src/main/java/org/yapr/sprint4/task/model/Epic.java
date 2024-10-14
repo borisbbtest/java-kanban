@@ -10,7 +10,7 @@ public class Epic extends Task {
 
     public Epic(int id, String title, String description) {
         // Передаем null для duration и startTime
-        super(id, title, description, Status.NEW, null, null, null);
+        super(id, title, description, Status.NEW, null, null);
         this.subtasks = new ArrayList<>();
     }
 
@@ -79,7 +79,6 @@ public class Epic extends Task {
         sb.append(getDescription()).append(","); // description
         sb.append("0").append(","); // duration
         sb.append(","); // startTime
-        sb.append(","); // priority
         sb.append(""); // epic
         return sb.toString();
     }

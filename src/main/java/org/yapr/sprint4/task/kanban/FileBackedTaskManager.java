@@ -107,7 +107,7 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
     // Метод для сохранения состояния менеджера в файл
     private void save() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write("id,type,name,status,description,duration,startTime,priority,epic\n");
+            writer.write("id,type,name,status,description,duration,startTime,epic\n");
             for (Task task : getAllTasks()) {
                 writer.write(task.toString());
                 writer.newLine();
@@ -125,7 +125,6 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         String title = fields[2];
         Status status = Status.valueOf(fields[3]);
         String description = fields[4];
-        Integer  priority =  null;
         Duration duration = null;
         LocalDateTime startTime = null;
 
@@ -137,21 +136,13 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
             duration = Duration.ofMinutes(Long.parseLong(fields[5]));
         }
 
-        // Для задач, которые не являются эпиками, читаем приоритет
-        if (!type.equals("EPIC") && !fields[7].isEmpty()) {
-            try {
-                priority = Integer.parseInt(fields[7]);
-            } catch (NumberFormatException e) {
-                throw new RuntimeException("Ошибка при парсинге приоритета: " + e.getMessage());
-            }
-        }
 
         return switch (type) {
-            case "TASK" -> new Task(id, title, description, status,duration,startTime,priority);
+            case "TASK" -> new Task(id, title, description, status,duration,startTime);
             case "EPIC" -> new Epic(id, title, description);
             case "SUBTASK" -> {
-                int epicId = Integer.parseInt(fields[8]);
-                yield new Subtask(id, title, description, status, epicId,duration,startTime,priority);
+                int epicId = Integer.parseInt(fields[7]);
+                yield new Subtask(id, title, description, status, epicId,duration,startTime);
             }
             default -> throw new IllegalArgumentException("Неизвестный тип задачи: " + type);
         };

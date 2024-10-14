@@ -33,14 +33,13 @@ class FieBackedTaskManagerTest {
         FileBackedTaskManager manager = new FileBackedTaskManager(tempFile);
 
         // Создаём задачи, эпики и подзадачи
-        Task task1 = new Task(0, "Task 1", "Description 1", Status.NEW, Duration.ofMinutes(30), LocalDateTime.now(), 1234);
+        Task task1 = new Task(0, "Task 1", "Description 1", Status.NEW, Duration.ofMinutes(30), LocalDateTime.now());
         manager.createTask(task1);
 
         Epic epic1 = new Epic(0, "Epic 1", "Description Epic 1");
         manager.createEpic(epic1);
 
-        Subtask subtask1 = new Subtask(0, "Subtask 1", "Description Subtask 1", Status.NEW, epic1.getId(),Duration.ofMinutes(30), LocalDateTime.now().plusMinutes(40), 213);
-        manager.createSubtask(subtask1);
+        Subtask subtask1 = new Subtask(0, "Subtask 1", "Description Subtask 1", Status.NEW, epic1.getId(),Duration.ofMinutes(30), LocalDateTime.now().plusMinutes(40));        manager.createSubtask(subtask1);
 
         // Сохраняем состояние
         FileBackedTaskManager loadedManager = FileBackedTaskManager.loadFromFile(tempFile);
@@ -60,7 +59,7 @@ class FieBackedTaskManagerTest {
         FileBackedTaskManager manager = new FileBackedTaskManager(tempFile);
 
         // Создаём одну задачу
-        Task task1 = new Task(0, "Task 1", "Description 1", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now(), 1);
+        Task task1 = new Task(0, "Task 1", "Description 1", Status.NEW,Duration.ofMinutes(30), LocalDateTime.now());
         manager.createTask(task1);
 
         // Загружаем из файла

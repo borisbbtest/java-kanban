@@ -14,7 +14,7 @@ class TaskFieldUpdateTest {
 
     @Test
     void shouldUpdateTaskFieldsAndReflectChangesInManager() {
-        Task task = new Task(22, "Initial Title", "Initial Description", Status.NEW, Duration.ofMinutes(30), LocalDateTime.now().plusMinutes(44), 1);
+        Task task = new Task(22, "Initial Title", "Initial Description", Status.NEW, Duration.ofMinutes(30), LocalDateTime.now().plusMinutes(44));
         taskManager.createTask(task);
 
         task.setTitle("Updated Title");

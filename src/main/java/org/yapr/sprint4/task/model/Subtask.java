@@ -8,8 +8,8 @@ import java.util.Objects;
 public class Subtask extends Task {
     private int epicId;
 
-    public Subtask(int id, String title, String description, Status status, int epicId, Duration duration, LocalDateTime startTime, Integer priority) {
-        super(id, title, description, status, duration, startTime,priority);
+    public Subtask(int id, String title, String description, Status status, int epicId, Duration duration, LocalDateTime startTime) {
+        super(id, title, description, status, duration, startTime);
         this.epicId = epicId;
     }
 
@@ -40,7 +40,6 @@ public class Subtask extends Task {
         sb.append(getDescription()).append(","); // description
         sb.append(getDuration() != null ? getDuration().toMinutes() : "0").append(","); // duration
         sb.append(getStartTime() != null ? getStartTime() : "").append(","); // startTime
-        sb.append(getPriority() != null ? getPriority() : "").append(","); // priority
         sb.append(epicId); // epicId
         return sb.toString();
     }

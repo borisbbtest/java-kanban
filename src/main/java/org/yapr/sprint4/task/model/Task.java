@@ -11,17 +11,15 @@ public class Task {
     protected Status status;
     protected Duration duration; // Продолжительность задачи
     protected LocalDateTime startTime; // Время начала задачи
-    protected Integer priority;
 
     // Конструктор с временем начала и продолжительностью
-    public Task(int id, String title, String description, Status status, Duration duration, LocalDateTime startTime, Integer priority) {
+    public Task(int id, String title, String description, Status status, Duration duration, LocalDateTime startTime) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.status = status;
         this.duration = duration;
         this.startTime = startTime;
-        this.priority = priority;
     }
 
     // Геттеры и сеттеры для startTime и duration
@@ -79,15 +77,7 @@ public class Task {
         this.status = status;
     }
 
-    public Integer getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-
-    // Переопределение equals и hashCode для корректного сравнения задач
+     // Переопределение equals и hashCode для корректного сравнения задач
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -112,7 +102,6 @@ public class Task {
         sb.append(getDescription()).append(","); // description
         sb.append(getDuration() != null ? getDuration().toMinutes() : 0).append(","); // duration
         sb.append(getStartTime() != null ? getStartTime() : "").append(","); // startTime
-        sb.append(getPriority() != null ? getPriority() : ""); // priority
         return sb.toString();
     }
 

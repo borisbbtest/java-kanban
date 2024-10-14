@@ -19,7 +19,7 @@ public class InMemoryTaskManagerTest {
         TaskManager manager = Managers.getDefault();
 
         // Создаем и добавляем новую задачу
-        Task task = new Task(1, "Task", "Description", Status.DONE, Duration.ofMinutes(30), LocalDateTime.now(), 1);
+        Task task = new Task(1, "Task", "Description", Status.DONE, Duration.ofMinutes(30), LocalDateTime.now());
         manager.createTask(task);
 
         // Проверяем, что задача успешно добавлена и найдена по ID
@@ -41,7 +41,7 @@ public class InMemoryTaskManagerTest {
         assertEquals(0, foundEpic.getSubtasks().size(), "Эпик не должен содержать подзадач на момент создания.");
 
         // Создаем и добавляем новую подзадачу
-        Subtask subtask = new Subtask(3, "Subtask", "Description", Status.DONE, 2, Duration.ofMinutes(30), LocalDateTime.now().plusMinutes(90), 1);
+        Subtask subtask = new Subtask(3, "Subtask", "Description", Status.DONE, 2, Duration.ofMinutes(30), LocalDateTime.now().plusMinutes(90));
         manager.createSubtask(subtask);
 
         // Проверяем, что подзадача успешно добавлена и найдена по ID

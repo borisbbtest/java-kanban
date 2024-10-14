@@ -14,14 +14,14 @@ public class TaskImmutabilityTest {
         TaskManager manager = Managers.getDefault();
 
         // Создаем оригинальную задачу
-        Task originalTask = new Task(1, "Задача", "Описание", Status.DONE, Duration.ofMinutes(30), LocalDateTime.now(), 1);
+        Task originalTask = new Task(1, "Задача", "Описание", Status.DONE, Duration.ofMinutes(30), LocalDateTime.now());
         manager.createTask(originalTask);
 
         // Получаем оригинальную задачу из менеджера
         Task taskFromManager = manager.getTaskById(1);
 
         // Создаем измененную задачу с тем же ID
-        Task modifiedTask = new Task(1, "Измененная задача", "Новое описание", Status.DONE, Duration.ofMinutes(45), LocalDateTime.now().plusMinutes(45), 1);
+        Task modifiedTask = new Task(1, "Измененная задача", "Новое описание", Status.DONE, Duration.ofMinutes(45), LocalDateTime.now().plusMinutes(45));
         manager.createTask(modifiedTask);
 
         assertEquals(originalTask.getId(), taskFromManager.getId(), "ID задачи должен остаться неизменным.");
