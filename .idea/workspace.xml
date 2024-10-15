@@ -6,21 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/InMemoryTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManagerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManagerApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Epic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Epic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Subtask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/FieBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FieBackedTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/HistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HistoryManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/InMemoryTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/ManagersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ManagersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/TaskFieldUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskFieldUpdateTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/TaskIdConflictTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskIdConflictTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/TaskImmutabilityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskImmutabilityTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,8 +133,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
@@ -300,7 +285,7 @@
       <updated>1728136726875</updated>
       <workItem from="1728136727877" duration="15442000" />
       <workItem from="1728575264686" duration="8700000" />
-      <workItem from="1728888321308" duration="3639000" />
+      <workItem from="1728888321308" duration="6947000" />
     </task>
     <task id="LOCAL-00001" summary="новый функционал">
       <option name="closed" value="true" />
