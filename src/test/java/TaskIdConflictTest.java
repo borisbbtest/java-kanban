@@ -2,10 +2,8 @@ import org.junit.jupiter.api.Test;
 import org.yapr.sprint4.task.kanban.InMemoryTaskManager;
 import org.yapr.sprint4.task.model.Task;
 import org.yapr.sprint4.task.model.Status;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskIdConflictTest {

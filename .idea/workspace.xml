@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/HttpTaskServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/BaseHttpHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/EpicHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/HistoryHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/PrioritizedTasksHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/SubtaskHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/TaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/java-kanban.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/HttpTaskManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/FileBackedTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/InMemoryTaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/kanban/TaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FieBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FieBackedTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HistoryManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TaskFieldUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskFieldUpdateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TaskIdConflictTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskIdConflictTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TaskImmutabilityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskImmutabilityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +50,23 @@
                 <item name="java-kanban" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-kanban" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-kanban" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-kanban" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -127,7 +141,7 @@
     "Gradle.java-kanban [build].executor": "Run",
     "Gradle.java-kanban [clean].executor": "Run",
     "Gradle.java-kanban [jar].executor": "Run",
-    "JUnit.FieBackedTaskManagerTest.executor": "Coverage",
+    "JUnit.FieBackedTaskManagerTest.executor": "Run",
     "JUnit.FieBackedTaskManagerTest.shouldSaveAndLoadMultipleTasks.executor": "Run",
     "JUnit.HistoryManagerTest.executor": "Run",
     "JUnit.TaskImmutabilityTest.executor": "Run",
@@ -136,6 +150,7 @@
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "sprint__9-solution-http-api",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/boris_z/java-kanban",
@@ -151,75 +166,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
+      <recent name="$PROJECT_DIR$/src/main/java/test" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main" />
-      <recent name="$PROJECT_DIR$/src/main/java" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.java-kanban [build]">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.yapr.sprint4.task.kanban.Main" />
-      <module name="java-kanban.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.yapr.sprint4.task.service.handler.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HistoryManagerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;HistoryManagerTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="InMemoryTaskManagerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;InMemoryTaskManagerTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.java-kanban [clean]">
     <configuration name="java-kanban [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -264,13 +218,59 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="java-kanban [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="testClasses" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="FieBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.FieBackedTaskManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HistoryManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban.main" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HistoryManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.java-kanban [build]" />
         <item itemvalue="Gradle.java-kanban [clean]" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.InMemoryTaskManagerTest" />
-        <item itemvalue="Gradle.HistoryManagerTest" />
+        <item itemvalue="JUnit.FieBackedTaskManagerTest" />
+        <item itemvalue="JUnit.HistoryManagerTest" />
+        <item itemvalue="Gradle.java-kanban [testClasses]" />
+        <item itemvalue="Gradle.java-kanban [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -292,7 +292,8 @@
       <updated>1728136726875</updated>
       <workItem from="1728136727877" duration="15442000" />
       <workItem from="1728575264686" duration="8700000" />
-      <workItem from="1728888321308" duration="14159000" />
+      <workItem from="1728888321308" duration="14246000" />
+      <workItem from="1729107886748" duration="713000" />
     </task>
     <task id="LOCAL-00001" summary="новый функционал">
       <option name="closed" value="true" />

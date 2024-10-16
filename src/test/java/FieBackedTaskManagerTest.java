@@ -4,13 +4,11 @@ import org.yapr.sprint4.task.model.Subtask;
 import org.yapr.sprint4.task.model.Task;
 import org.yapr.sprint4.task.model.Status;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions.*;
 
 class FieBackedTaskManagerTest {
 

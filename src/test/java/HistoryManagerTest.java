@@ -4,11 +4,9 @@ import org.yapr.sprint4.task.model.*;
 import org.yapr.sprint4.task.kanban.Managers;
 import org.yapr.sprint4.task.kanban.TaskManager;
 import org.yapr.sprint4.task.kanban.HistoryManager;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class HistoryManagerTest {
