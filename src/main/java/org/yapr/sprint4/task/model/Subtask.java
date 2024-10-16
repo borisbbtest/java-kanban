@@ -6,7 +6,7 @@ import java.util.Objects;
 
 // Класс для подзадач
 public class Subtask extends Task {
-    private int epicId;
+    private final int epicId;
 
     public Subtask(int id, String title, String description, Status status, int epicId, Duration duration, LocalDateTime startTime) {
         super(id, title, description, status, duration, startTime);

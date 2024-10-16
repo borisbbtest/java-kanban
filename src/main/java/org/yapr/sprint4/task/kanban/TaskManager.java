@@ -33,9 +33,9 @@ public interface TaskManager {
 
     boolean hasTimeIntersection(Task newTask);
 
-    void deleteEpicById(int id);
+    boolean deleteEpicById(int id);
 
-    void deleteSubtaskById(int id);
+    boolean deleteSubtaskById(int id);
 
     List<Subtask> getSubtasksForEpic(int epicId);
 

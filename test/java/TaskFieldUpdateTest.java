@@ -2,10 +2,8 @@ import org.junit.jupiter.api.Test;
 import org.yapr.sprint4.task.kanban.Managers;
 import org.yapr.sprint4.task.kanban.TaskManager;
 import org.yapr.sprint4.task.model.*;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class TaskFieldUpdateTest {
