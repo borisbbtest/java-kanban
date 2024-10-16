@@ -10,10 +10,11 @@ import java.io.IOException;
 
 public class TaskHandler extends BaseHttpHandler {
     private final TaskManager taskManager;
-    private final Gson gson = new Gson();
+    private  Gson gson;
 
-    public TaskHandler(TaskManager taskManager) {
+    public TaskHandler(TaskManager taskManager,  Gson gson ) {
         this.taskManager = taskManager;
+        this.gson =  gson;
     }
 
     @Override
@@ -60,9 +61,10 @@ public class TaskHandler extends BaseHttpHandler {
     private void handleCreateOrUpdateTask(HttpExchange exchange) throws IOException {
         String requestBody = readRequestBody(exchange);
         Task task = gson.fromJson(requestBody, Task.class);
+        int id= task.getId();
 
         try {
-            if (task.getId() == 0) {
+            if (taskManager.getTaskById(id) == null) {
                 taskManager.createTask(task);
                 sendText(exchange, gson.toJson(task), 201); // Created
             } else {

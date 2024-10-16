@@ -9,10 +9,11 @@ import java.io.IOException;
 
 public class SubtaskHandler extends BaseHttpHandler {
     private final TaskManager taskManager;
-    private final Gson gson = new Gson();
+    private  Gson gson;
 
-    public SubtaskHandler(TaskManager taskManager) {
+    public SubtaskHandler(TaskManager taskManager,Gson gson) {
         this.taskManager = taskManager;
+        this.gson = gson;
     }
 
     @Override
@@ -61,7 +62,7 @@ public class SubtaskHandler extends BaseHttpHandler {
         Subtask subtask = gson.fromJson(requestBody, Subtask.class);
 
         try {
-            if (subtask.getId() == 0) {
+            if (taskManager.getSubtaskById(subtask.getId())==null) {
                 taskManager.createSubtask(subtask);
                 sendText(exchange, gson.toJson(subtask), 201); // Created
             } else {

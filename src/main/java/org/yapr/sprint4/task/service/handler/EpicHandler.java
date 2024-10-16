@@ -9,10 +9,11 @@ import java.io.IOException;
 
 public class EpicHandler extends BaseHttpHandler {
     private final TaskManager taskManager;
-    private final Gson gson = new Gson();
+    private Gson gson;
 
-    public EpicHandler(TaskManager taskManager) {
+    public EpicHandler(TaskManager taskManager,Gson gson) {
         this.taskManager = taskManager;
+        this.gson = gson;
     }
 
     @Override
@@ -60,7 +61,7 @@ public class EpicHandler extends BaseHttpHandler {
         String requestBody = readRequestBody(exchange);
         Epic epic = gson.fromJson(requestBody, Epic.class);
 
-        if (epic.getId() == 0) {
+        if (taskManager.getEpicById(epic.getId()) == null) {
             taskManager.createEpic(epic);
             sendText(exchange, gson.toJson(epic), 201); // Created
         } else {

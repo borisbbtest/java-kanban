@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/java-kanban.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/HttpTaskManagerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/DurationAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/LocalDateTimeDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/LocalDateTimeSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/HttpTaskServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/HttpTaskServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/BaseHttpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/BaseHttpHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/EpicHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/EpicHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/HistoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/HistoryHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/PrioritizedTasksHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/PrioritizedTasksHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/SubtaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/SubtaskHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/TaskHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/FieBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FieBackedTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/HistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HistoryManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TaskFieldUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskFieldUpdateTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TaskIdConflictTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskIdConflictTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TaskImmutabilityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskImmutabilityTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TaskTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HttpTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HttpTaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +123,10 @@
     "Gradle.HistoryManagerTest.executor": "Run",
     "Gradle.HistoryManagerTest.shouldTrackHistoryInCorrectOrder.executor": "Run",
     "Gradle.HistoryManagerTest.testRemoveFromHistoryEdgeCases.executor": "Run",
+    "Gradle.HttpTaskManagerTest.executor": "Run",
+    "Gradle.HttpTaskManagerTest.testAddAndFindTasksById.executor": "Debug",
+    "Gradle.HttpTaskManagerTest.testAddEpic.executor": "Run",
+    "Gradle.HttpTaskManagerTest.testAddSubtask.executor": "Run",
     "Gradle.InMemoryTaskManagerTest.executor": "Run",
     "Gradle.InMemoryTaskManagerTest.testAddAndFindTasksById.executor": "Run",
     "Gradle.ManagersTest.executor": "Run",
@@ -173,27 +179,101 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.java-kanban [clean]">
-    <configuration name="java-kanban [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.HttpTaskManagerTest.testAddSubtask">
+    <configuration name="HttpTaskManagerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;HttpTaskManagerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="HttpTaskManagerTest.testAddAndFindTasksById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--stacktrace" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;HttpTaskManagerTest.testAddAndFindTasksById&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="HttpTaskManagerTest.testAddEpic" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;HttpTaskManagerTest.testAddEpic&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="HttpTaskManagerTest.testAddSubtask" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;HttpTaskManagerTest.testAddSubtask&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="java-kanban [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -218,59 +298,13 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="java-kanban [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="testClasses" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="FieBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.FieBackedTaskManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HistoryManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-kanban.main" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HistoryManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.HttpTaskManagerTest.testAddSubtask" />
+        <item itemvalue="Gradle.HttpTaskManagerTest.testAddEpic" />
+        <item itemvalue="Gradle.HttpTaskManagerTest" />
+        <item itemvalue="Gradle.HttpTaskManagerTest.testAddAndFindTasksById" />
         <item itemvalue="Gradle.java-kanban [clean]" />
-        <item itemvalue="JUnit.FieBackedTaskManagerTest" />
-        <item itemvalue="JUnit.HistoryManagerTest" />
-        <item itemvalue="Gradle.java-kanban [testClasses]" />
-        <item itemvalue="Gradle.java-kanban [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +327,7 @@
       <workItem from="1728136727877" duration="15442000" />
       <workItem from="1728575264686" duration="8700000" />
       <workItem from="1728888321308" duration="14246000" />
-      <workItem from="1729107886748" duration="713000" />
+      <workItem from="1729107886748" duration="5833000" />
     </task>
     <task id="LOCAL-00001" summary="новый функционал">
       <option name="closed" value="true" />
@@ -359,6 +393,22 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="новый функционал" />
     <option name="LAST_COMMIT_MESSAGE" value="новый функционал" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/TaskHandler.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/EpicHandler.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

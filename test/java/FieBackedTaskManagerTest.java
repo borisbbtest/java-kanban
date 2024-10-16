@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.yapr.sprint4.task.kanban.FileBackedTaskManager;
 import org.yapr.sprint4.task.model.Epic;
 import org.yapr.sprint4.task.model.Subtask;
@@ -8,7 +9,9 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FieBackedTaskManagerTest {
 
@@ -22,7 +25,7 @@ class FieBackedTaskManagerTest {
         FileBackedTaskManager loadedManager = FileBackedTaskManager.loadFromFile(tempFile);
 
         // Проверяем, что после загрузки список задач пуст
-        assertTrue(loadedManager.getAllTasks().isEmpty(), "Список задач должен быть пустым");
+        Assertions.assertTrue(loadedManager.getAllTasks().isEmpty(), "Список задач должен быть пустым");
     }
 
     @Test
@@ -43,12 +46,12 @@ class FieBackedTaskManagerTest {
         FileBackedTaskManager loadedManager = FileBackedTaskManager.loadFromFile(tempFile);
 
         // Проверяем, что все задачи восстановлены
-        assertEquals(3, loadedManager.getAllTasks().size(), "Все задачи должны быть восстановлены");
-        assertEquals(task1, loadedManager.getTaskById(task1.getId()), "Задача должна быть восстановлена");
+        Assertions.assertEquals(3, loadedManager.getAllTasks().size(), "Все задачи должны быть восстановлены");
+        Assertions.assertEquals(task1, loadedManager.getTaskById(task1.getId()), "Задача должна быть восстановлена");
         Epic epic2 =loadedManager.getEpicById(epic1.getId());
-        assertEquals(epic1, epic2, "Эпик должен быть восстановлен");
+        Assertions.assertEquals(epic1, epic2, "Эпик должен быть восстановлен");
         Subtask subtask2 = loadedManager.getSubtaskById(subtask1.getId());
-        assertEquals(subtask1, subtask2, "Подзадача должна быть восстановлена");
+        Assertions.assertEquals(subtask1, subtask2, "Подзадача должна быть восстановлена");
     }
 
     @Test
@@ -64,7 +67,7 @@ class FieBackedTaskManagerTest {
         FileBackedTaskManager loadedManager = FileBackedTaskManager.loadFromFile(tempFile);
 
         // Проверяем, что задача восстановлена
-        assertEquals(1, loadedManager.getAllTasks().size(), "Одна задача должна быть восстановлена");
-        assertEquals(task1, loadedManager.getTaskById(task1.getId()), "Задача должна быть восстановлена");
+        Assertions.assertEquals(1, loadedManager.getAllTasks().size(), "Одна задача должна быть восстановлена");
+        Assertions.assertEquals(task1, loadedManager.getTaskById(task1.getId()), "Задача должна быть восстановлена");
     }
 }

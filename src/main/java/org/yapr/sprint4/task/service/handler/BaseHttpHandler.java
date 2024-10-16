@@ -2,11 +2,12 @@ package org.yapr.sprint4.task.service.handler;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+
 public abstract class BaseHttpHandler implements HttpHandler {
+
 
     protected void sendText(HttpExchange exchange, String text, int statusCode) throws IOException {
         byte[] response = text.getBytes(StandardCharsets.UTF_8);
