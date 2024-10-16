@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/DurationAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/LocalDateTimeDeserializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/LocalDateTimeSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/java-kanban.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/java-kanban.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/HttpTaskServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/HttpTaskServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/BaseHttpHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/BaseHttpHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/EpicHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/EpicHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/HistoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/HistoryHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/PrioritizedTasksHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/PrioritizedTasksHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/SubtaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/SubtaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/TaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/FieBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FieBackedTaskManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/HttpTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HttpTaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,14 +162,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/test/java" />
       <recent name="$PROJECT_DIR$/src/main/java/test" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.HttpTaskManagerTest.testAddSubtask">
+  <component name="RunManager" selected="Gradle.HttpTaskManagerTest">
     <configuration name="HttpTaskManagerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -300,9 +290,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.HttpTaskManagerTest" />
         <item itemvalue="Gradle.HttpTaskManagerTest.testAddSubtask" />
         <item itemvalue="Gradle.HttpTaskManagerTest.testAddEpic" />
-        <item itemvalue="Gradle.HttpTaskManagerTest" />
         <item itemvalue="Gradle.HttpTaskManagerTest.testAddAndFindTasksById" />
         <item itemvalue="Gradle.java-kanban [clean]" />
       </list>
@@ -327,7 +317,7 @@
       <workItem from="1728136727877" duration="15442000" />
       <workItem from="1728575264686" duration="8700000" />
       <workItem from="1728888321308" duration="14246000" />
-      <workItem from="1729107886748" duration="5833000" />
+      <workItem from="1729107886748" duration="5980000" />
     </task>
     <task id="LOCAL-00001" summary="новый функционал">
       <option name="closed" value="true" />

@@ -27,7 +27,7 @@ public class HttpTaskServer {
         initContexts();
     }
 
-    public Gson getGson(){
+    public Gson getGson() {
         return gson;
     }
 
