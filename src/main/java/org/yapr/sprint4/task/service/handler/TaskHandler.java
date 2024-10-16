@@ -12,9 +12,9 @@ public class TaskHandler extends BaseHttpHandler {
     private final TaskManager taskManager;
     private final Gson gson;
 
-    public TaskHandler(TaskManager taskManager,  Gson gson ) {
+    public TaskHandler(TaskManager taskManager,  Gson gson) {
         this.taskManager = taskManager;
-        this.gson =  gson;
+        this.gson = gson;
     }
 
     @Override
@@ -61,7 +61,7 @@ public class TaskHandler extends BaseHttpHandler {
     private void handleCreateOrUpdateTask(HttpExchange exchange) throws IOException {
         String requestBody = readRequestBody(exchange);
         Task task = gson.fromJson(requestBody, Task.class);
-        int id= task.getId();
+        int id=task.getId();
 
         try {
             if (taskManager.getTaskById(id) == null) {
