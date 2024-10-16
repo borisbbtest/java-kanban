@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class SubtaskHandler extends BaseHttpHandler {
     private final TaskManager taskManager;
-    private  Gson gson;
+    private final Gson gson;
 
     public SubtaskHandler(TaskManager taskManager,Gson gson) {
         this.taskManager = taskManager;

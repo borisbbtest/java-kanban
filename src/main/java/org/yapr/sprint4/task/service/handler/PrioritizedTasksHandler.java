@@ -8,9 +8,9 @@ import java.io.IOException;
 
 public class PrioritizedTasksHandler extends BaseHttpHandler {
     private final TaskManager taskManager;
-    private Gson gson ;
+    private final Gson gson;
 
-    public PrioritizedTasksHandler(TaskManager taskManager,Gson gson ) {
+    public PrioritizedTasksHandler(TaskManager taskManager, Gson gson ) {
         this.taskManager = taskManager;
         this.gson = gson;
     }

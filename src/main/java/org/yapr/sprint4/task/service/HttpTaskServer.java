@@ -15,7 +15,7 @@ public class HttpTaskServer {
     private static final int PORT = 8080; // Порт для сервера
     private final HttpServer server;
     private final TaskManager taskManager;
-    private Gson gson = new GsonBuilder()
+    private final Gson gson = new GsonBuilder()
             .registerTypeAdapter(Duration.class, new DurationAdapter())
             .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer())
             .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer())

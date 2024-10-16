@@ -23,8 +23,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HttpTaskManagerTest {
 
-    private TaskManager manager;
-    private HttpTaskServer taskServer;
+    private final TaskManager manager;
+    private final HttpTaskServer taskServer;
     private Gson gson;
 
     public HttpTaskManagerTest() throws IOException {
