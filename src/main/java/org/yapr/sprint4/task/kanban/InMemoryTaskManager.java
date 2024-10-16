@@ -113,7 +113,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void deleteEpicById(int id) {
+    public boolean deleteEpicById(int id) {
         if (epics.containsKey(id)) {
             epics.remove(id);
             subtasks.values().removeIf(subtask -> subtask.getEpicId() == id);
@@ -121,6 +121,7 @@ public class InMemoryTaskManager implements TaskManager {
         } else {
             System.out.println("Эпик с ID " + id + " не найден.");
         }
+        return false;
     }
 
     @Override
@@ -168,7 +169,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void deleteSubtaskById(int id) {
+    public boolean deleteSubtaskById(int id) {
         if (subtasks.containsKey(id)) {
             Subtask removedSubtask = subtasks.remove(id);
             prioritizedTasks.remove(removedSubtask);
@@ -176,6 +177,7 @@ public class InMemoryTaskManager implements TaskManager {
         } else {
             System.out.println("Подзадача с ID " + id + " не найдена.");
         }
+        return false;
     }
 
     @Override
