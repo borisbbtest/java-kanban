@@ -61,7 +61,7 @@ public class TaskHandler extends BaseHttpHandler {
     private void handleCreateOrUpdateTask(HttpExchange exchange) throws IOException {
         String requestBody = readRequestBody(exchange);
         Task task = gson.fromJson(requestBody, Task.class);
-        int id=task.getId();
+        int id = task.getId();
 
         try {
             if (taskManager.getTaskById(id) == null) {
