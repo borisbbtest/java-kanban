@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27538755-8347-4be5-a89b-1e351ff5b01c" name="Changes" comment="новый функционал">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/model/Subtask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/HttpTaskServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/HttpTaskServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/EpicHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/EpicHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/HistoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/HistoryHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/PrioritizedTasksHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/PrioritizedTasksHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/SubtaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/SubtaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/TaskHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yapr/sprint4/task/service/handler/TaskHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/java/HttpTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/java/HttpTaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -323,7 +315,7 @@
       <workItem from="1728136727877" duration="15442000" />
       <workItem from="1728575264686" duration="8700000" />
       <workItem from="1728888321308" duration="14246000" />
-      <workItem from="1729107886748" duration="6181000" />
+      <workItem from="1729107886748" duration="6253000" />
     </task>
     <task id="LOCAL-00001" summary="новый функционал">
       <option name="closed" value="true" />
